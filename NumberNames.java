@@ -13,20 +13,10 @@ public class NumberNames {
 
 
     public static String translate(int num) {
-
-        if (num >= MILLION)
-            return translate(num / MILLION) + " million" + remnant(MILLION, ", ").apply(num);
-
-        if (num >= THOUSAND) {
-            return translate(num / THOUSAND) + " thousand" + remnant(THOUSAND, ", ").apply(num);
-        }
-        if (num >= HUNDRED) {
-            return LITERALS[(num / HUNDRED)] + " hundred" + remnant(HUNDRED, " and ").apply(num);
-        }
-
-        if (num >= 20) {
-            return TYS[(num / TEN)] + remnant(TEN, " ").apply(num);
-        }
+        if (num >= MILLION) return translate(num / MILLION) + " million" + remnant(MILLION, ", ").apply(num);
+        if (num >= THOUSAND) return translate(num / THOUSAND) + " thousand" + remnant(THOUSAND, ", ").apply(num);
+        if (num >= HUNDRED) return LITERALS[(num / HUNDRED)] + " hundred" + remnant(HUNDRED, " and ").apply(num);
+        if (num >= 20) return TYS[(num / TEN)] + remnant(TEN, " ").apply(num);
         return LITERALS[num];
     }
 
